@@ -49,13 +49,6 @@ variances = c(D_linear, D_jk, D_bs)
 val1 = ratio - x * sqrt(variances * (1/N_test - 1/N_houses))
 val2 = ratio + x * sqrt(variances * (1/N_test - 1/N_houses))
 
-
-
-# d is a data frame with 4 columns
-# d$x gives variable names
-# d$y gives center point
-# d$ylo gives lower limits
-# d$yhi gives upper limits
 library(ggplot2)
 d = data.frame(x = c("linearization", "jack_knife", "bootstrap"), y = c(ratio, mean_jk, mean_bs), ylo = val1, yhi = val2)
 ggplot(d, aes(x = x, y = y)) +
